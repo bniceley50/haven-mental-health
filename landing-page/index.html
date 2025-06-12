@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haven - Secure Therapy Communication</title>
+    <meta name="description" content="Simple, secure messaging and video for mental health professionals. No billing, no insurance, just better client communication.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f7fafc;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .nav-links a {
+            margin-left: 30px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #5a67d8;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #667eea;
+            color: #667eea;
+        }
+        
+        .btn-outline:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #1a202c;
+        }
+        
+        .subtitle {
+            font-size: 20px;
+            color: #718096;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin: 80px 0;
+        }
+        
+        .feature {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .feature h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #1a202c;
+        }
+        
+        .feature p {
+            color: #718096;
+        }
+        
+        .pricing {
+            background: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .price-box {
+            max-width: 400px;
+            margin: 40px auto;
+            padding: 40px;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+        }
+        
+        .price {
+            font-size: 48px;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .price-period {
+            color: #718096;
+        }
+        
+        .price-features {
+            list-style: none;
+            margin: 30px 0;
+        }
+        
+        .price-features li {
+            padding: 10px 0;
+            color: #4a5568;
+        }
+        
+        .testimonial {
+            background: #f7fafc;
+            padding: 60px 20px;
+            text-align: center;
+            font-style: italic;
+            color: #4a5568;
+        }
+        
+        .testimonial-author {
+            margin-top: 20px;
+            font-style: normal;
+            font-weight: 500;
+            color: #1a202c;
+        }
+        
+        .cta {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .cta .btn {
+            background: white;
+            color: #667eea;
+            font-size: 18px;
+            padding: 15px 40px;
+        }
+        
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            color: #718096;
+        }
+        
+        .security-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #e6fffa;
+            color: #047857;
+            padding: 8px 16px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+            
+            .nav-links a {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Haven</div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="/login" class="btn">Login</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Secure Therapy Communication</h1>
+            <p class="subtitle">
+                Simple, encrypted messaging and video for mental health professionals. 
+                No billing. No insurance. Just better client communication.
+            </p>
+            <div class="security-badge">
+                🔒 HIPAA Compliant • End-to-End Encrypted
+            </div>
+            <br>
+            <a href="/login" class="btn">Start Free Trial</a>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <div class="feature">
+                <div class="feature-icon">💬</div>
+                <h3>Encrypted Messaging</h3>
+                <p>Secure, HIPAA-compliant chat between sessions. Clients can reach out when they need you most.</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">🎥</div>
+                <h3>Reliable Video Sessions</h3>
+                <p>Crystal-clear video therapy that actually works. No downloads, no complexity.</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">📝</div>
+                <h3>Simple Session Notes</h3>
+                <p>SOAP and DAP templates built-in. Write notes quickly and securely after each session.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonial">
+        <div class="container">
+            <p>"Finally, software that does what I need without 47 features I'll never use. My clients love the secure messaging."</p>
+            <div class="testimonial-author">- Dr. Sarah Chen, LMFT</div>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2>Simple, Transparent Pricing</h2>
+            <div class="price-box">
+                <div class="price">$49<span class="price-period">/month</span></div>
+                <ul class="price-features">
+                    <li>✓ Unlimited secure messages</li>
+                    <li>✓ Unlimited video sessions</li>
+                    <li>✓ Encrypted session notes</li>
+                    <li>✓ Basic scheduling</li>
+                    <li>✓ No per-client fees</li>
+                    <li>✓ Cancel anytime</li>
+                </ul>
+                <a href="/login" class="btn">Start 30-Day Free Trial</a>
+            </div>
+            <p style="color: #718096; margin-top: 20px;">
+                First 10 therapists lock in this price forever
+            </p>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Simplify Your Practice?</h2>
+            <p>Join therapists who choose security and simplicity</p>
+            <a href="/login" class="btn">Get Started Free</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2024 Haven Mental Health. Built for therapists, by therapists.</p>
+            <p style="margin-top: 10px;">
+                <a href="mailto:support@haven-mental.health" style="color: #667eea;">support@haven-mental.health</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

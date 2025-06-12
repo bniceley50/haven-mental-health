@@ -1,0 +1,11 @@
+Name,Email,Practice,City,Specialty,Contact Date,Email Sent,Response,Demo Date,Status,Trial Start,Converted,Monthly Revenue,Notes
+Dr. Sarah Chen,sarah@example.com,Private Practice,San Francisco,Anxiety/Depression,2024-01-15,Email 1,Interested,2024-01-18,Trial,2024-01-18,Yes,$49,Referred 2 colleagues
+Dr. Michael Ross,michael@example.com,Group Practice,Oakland,Couples Therapy,2024-01-15,Email 2,No Response,,,,,,$0,Follow up in 3 days
+Jane Smith LMFT,jane@example.com,Solo Practice,Berkeley,Trauma,2024-01-16,Email 3,Questions,2024-01-20,Demo Scheduled,,,,$0,Concerned about video quality
+Dr. Robert Kim,robert@example.com,Private Practice,San Jose,Adolescents,2024-01-16,Email 4,Out of Office,,,,,,$0,Try again next week
+Lisa Johnson LCSW,lisa@example.com,Community Clinic,Sacramento,Addiction,2024-01-17,Email 1,Interested,2024-01-19,Trial,2024-01-19,Pending,$0,Loves the simplicity
+Dr. Amanda White,amanda@example.com,Private Practice,Palo Alto,Eating Disorders,2024-01-17,LinkedIn,Connected,,,,,,$0,Warming up contact
+Thomas Brown PhD,thomas@example.com,University Counseling,Davis,Student Mental Health,2024-01-18,Email 2,Not Interested,,,,,,$0,Happy with current system
+Dr. Patricia Lee,patricia@example.com,Private Practice,Walnut Creek,Grief Counseling,2024-01-18,Email 3,Interested,2024-01-22,Demo Scheduled,,,,$0,Switching from SimplePractice
+Mark Davis LMFT,mark@example.com,Telehealth Only,Remote,General Therapy,2024-01-19,Email 4,Immediate Interest,2024-01-19,Converted,2024-01-19,Yes,$49,Signed up during demo
+Dr. Jennifer Wu,jennifer@example.com,Group Practice,San Francisco,Family Therapy,2024-01-19,Referral-Sarah,Warm Lead,2024-01-23,Demo Scheduled,,,,$0,Sarah's colleague
