@@ -5,11 +5,13 @@ import { AuthProvider, useAuth } from './auth/auth-context';
 import { EncryptionProvider } from './encryption/encryption-provider';
 import { P2PProvider } from './p2p/p2p-provider';
 import { MessageProvider } from './messaging/message-context';
+import { MessageStorageProvider } from './contexts/MessageStorageContext';
 
 // Core components - just what we need
 import { LoginPage } from './auth/login-page';
 import { TherapistDashboard } from './core/therapist-dashboard';
 import { SecureChat } from './messaging/secure-chat';
+import { SecureChatDemo } from './messaging/secure-chat-demo';
 import { SessionNote } from './notes/session-note';
 import { SimpleScheduler } from './scheduling/simple-scheduler';
 import { VideoSession } from './video/video-session';
@@ -69,8 +71,9 @@ export function App() {
           <EncryptionProvider>
             <P2PProvider>
               <MessageProvider>
-                <NavigationBar />
-                <Routes>
+                <MessageStorageProvider>
+                  <NavigationBar />
+                  <Routes>
                 {/* Public routes */}
                 <Route path="/login" element={<LoginPage />} />
                 
@@ -89,7 +92,7 @@ export function App() {
                 
                 <Route path="/chat/:patientId" element={
                   <ProtectedRoute>
-                    <SecureChat />
+                    <SecureChatDemo />
                   </ProtectedRoute>
                 } />
                 
@@ -120,6 +123,7 @@ export function App() {
                 {/* Redirect all other routes to dashboard */}
                 <Route path="*" element={<Navigate to="/" />} />
               </Routes>
+                </MessageStorageProvider>
               </MessageProvider>
             </P2PProvider>
           </EncryptionProvider>

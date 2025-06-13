@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Box,
   Paper,
@@ -24,6 +24,8 @@ import {
 import { useMessages } from './message-context';
 import { useNavigation } from '../hooks/useNavigation';
 import { useAuth } from '../auth/auth-context';
+import { ComposeMessageModal } from './ComposeMessageModal';
+import { useMessageStorage } from '../contexts/MessageStorageContext';
 
 /**
  * Messages List Component
@@ -34,36 +36,25 @@ export function MessagesList() {
   const { messages } = useMessages();
   const { navigateToMessage } = useNavigation();
   const { user } = useAuth();
+  const { getAllConversations } = useMessageStorage();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedFilter, setSelectedFilter] = useState('all'); // all, unread, starred
+  const [showComposeModal, setShowComposeModal] = useState(false);
+  const [conversations, setConversations] = useState([]);
 
-  // Mock patient list with conversations
-  const [conversations] = useState([
-    {
-      patientId: 'patient-1',
-      patientName: 'Jane Doe',
-      lastMessage: 'I wanted to discuss our last session...',
-      timestamp: new Date(Date.now() - 3600000),
-      unread: true,
-      online: true
-    },
-    {
-      patientId: 'patient-2', 
-      patientName: 'John Smith',
-      lastMessage: 'Thank you for the resources you shared',
-      timestamp: new Date(Date.now() - 7200000),
-      unread: true,
-      online: false
-    },
-    {
-      patientId: 'patient-3',
-      patientName: 'Mary Johnson',
-      lastMessage: 'See you next Tuesday!',
-      timestamp: new Date(Date.now() - 86400000),
-      unread: false,
-      online: false
-    }
-  ]);
+  useEffect(() => {
+    // Get conversations from storage and format for display
+    const storedConvs = getAllConversations();
+    const formattedConvs = storedConvs.map(conv => ({
+      patientId: conv.patientId,
+      patientName: conv.patientName,
+      lastMessage: conv.messages.length > 0 ? conv.messages[conv.messages.length - 1].text : 'No messages yet',
+      timestamp: new Date(conv.lastActivity),
+      unread: conv.unread || false,
+      online: Math.random() > 0.5 // Random for demo
+    }));
+    setConversations(formattedConvs);
+  }, [getAllConversations, showComposeModal]); // Re-fetch when modal closes
 
   // Filter conversations based on search and filter
   const filteredConversations = conversations.filter(conv => {
@@ -81,8 +72,7 @@ export function MessagesList() {
   };
 
   const handleNewMessage = () => {
-    // In a real app, this would open a patient selector
-    navigateToMessage();
+    setShowComposeModal(true);
   };
 
   const formatTimestamp = (date) => {
@@ -239,6 +229,12 @@ export function MessagesList() {
           {conversations.filter(c => c.unread).length} Unread
         </Typography>
       </Box>
+
+      {/* Compose Message Modal */}
+      <ComposeMessageModal
+        open={showComposeModal}
+        onClose={() => setShowComposeModal(false)}
+      />
     </Box>
   );
 }
